@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* @category   Mango
+* @package    Mango_Categoryattributes
+* @author     ModuleCreator
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <Mango_Categoryattributes>
+            <version>0.1.2</version>
+        </Mango_Categoryattributes>
+    </modules>
+    <frontend>
+        <routers>
+            <categoryattributes>
+                <use>standard</use>
+                <args>
+                    <module>Mango_Categoryattributes</module>
+                    <frontName>categoryattributes</frontName>
+                </args>
+            </categoryattributes>
+        </routers>
+        <layout>
+            <updates>
+                <categoryattributes>
+                    <file>categoryattributes.xml</file>
+                </categoryattributes>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Mango_Categoryattributes after="Mage_Adminhtml">Mango_Categoryattributes_Adminhtml</Mango_Categoryattributes>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <catalog>
+                <children>
+                    <items module="categoryattributes">
+                        <title>Category Attributes</title>
+                        <sort_order>15</sort_order>
+                        <children>
+                            <attributes module="categoryattributes">
+                                <title>Category Attributes</title>
+                                <sort_order>15</sort_order>
+                                <action>adminhtml/categoryattributes</action>
+                            </attributes>
+                            <tabs module="categorytabs">
+                                <title>Category Tabs</title>
+                                <sort_order>18</sort_order>
+                                <action>adminhtml/categorytabs</action>
+                            </tabs>
+                        </children>
+                    </items>
+                </children>
+            </catalog>
+        </menu>
+        <layout>
+            <updates>
+                <categoryattributes>
+                    <file>categoryattributes.xml</file>
+                </categoryattributes>
+            </updates>
+        </layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <categoryattributes>
+                <class>Mango_Categoryattributes_Model</class>
+                <resourceModel>categoryattributes_mysql4</resourceModel>
+            </categoryattributes>
+            <categoryattributes_mysql4>
+                <class>Mango_Categoryattributes_Model_Mysql4</class>
+                <entities>
+                    <categoryattributes>
+                        <table>categoryattributes</table>
+                    </categoryattributes>
+                </entities>
+            </categoryattributes_mysql4>
+        </models>
+        <!--resources>
+            <categoryattributes_setup>
+                <setup>
+                    <module>Mango_Categoryattributes</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </categoryattributes_setup>
+            <categoryattributes_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </categoryattributes_write>
+            <categoryattributes_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </categoryattributes_read>
+        </resources-->
+        <blocks>
+            <categoryattributes>
+                <class>Mango_Categoryattributes_Block</class>
+            </categoryattributes>
+            <adminhtml>
+                <rewrite>
+                    <catalog_category_tab_attributes>Mango_Categoryattributes_Block_Adminhtml_Catalog_Category_Tab_Attributes</catalog_category_tab_attributes>
+                    <catalog_category_tab_general>Mango_Categoryattributes_Block_Adminhtml_Catalog_Category_Tab_General</catalog_category_tab_general>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <categoryattributes>
+                <class>Mango_Categoryattributes_Helper</class>
+            </categoryattributes>
+        </helpers>
+    </global>
+</config>

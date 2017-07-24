@@ -1,0 +1,128 @@
+"Advanced Dashboard", "Advanced Dashboard"
+"Advanced Reports", "Advanced Reports"
+"All Websites", "All Websites"
+"Allow Everything", "Allow Everything"
+"Appearance", "Appearance"
+"Average Discount", "Average Discount"
+"Average Invoiced", "Average Invoiced"
+"Average Number of Ordered Products", "Average Number of Ordered Products"
+"Average Refunded", "Average Refunded"
+"Average Revenue", "Average Revenue"
+"Average Shipping Amount", "Average Shipping Amount"
+"Average Tax Amount", "Average Tax Amount"
+"Bestsellers", "Bestsellers"
+"By Country", "By Country"
+"By Day of Week", "By Day of Week"
+"By Hour", "By Hour"
+"By Payment Type", "By Payment Type"
+"CSV", "CSV"
+"Compare", "Compare"
+"Custom", "Custom"
+"Customer", "Customer"
+"Customer Firstname", "Customer Firstname"
+"Customer Lastname", "Customer Lastname"
+"Day", "Day"
+"Discount", "Discount"
+"Display Advanced Reports under native Reports", "Display Advanced Reports under native Reports"
+"Excel XML", "Excel XML"
+"Export to:", "Export to:"
+"From", "From"
+"Grand Total", "Grand Total"
+"Group By Attribute", "Group By Attribute"
+"Group By Parent Product", "Group By Parent Product"
+"Invoiced", "Invoiced"
+"Items", "Items"
+"Items Ordered", "Items Ordered"
+"Last 12 months", "Last 12 months"
+"Last 24h hours", "Last 24h hours"
+"Last 3 months", "Last 3 months"
+"Last 30 days", "Last 30 days"
+"Last 7 days", "Last 7 days"
+"Lifetime", "Lifetime"
+"Low Stock", "Low Stock"
+"Low stock", "Low stock"
+"Metric", "Metric"
+"Mirasvit Advr", "Mirasvit Advr"
+"Month", "Month"
+"New vs Returning Customers", "New vs Returning Customers"
+"Next page", "Next page"
+"Number Of Orders", "Number Of Orders"
+"Number Of Search Terms", "Number Of Search Terms"
+"Number of Ordered Products", "Number of Ordered Products"
+"Number of Orders", "Number of Orders"
+"Number of Uses", "Number of Uses"
+"Number of values", "Number of values"
+"Order #", "Order #"
+"Page", "Page"
+"Period", "Period"
+"Previous month / %s', date('M', $prevMonth));
+
+        $intervals['quarter", "Previous month / %s', date('M', $prevMonth));
+
+        $intervals['quarter"
+"Previous page", "Previous page"
+"Previous quarter / %s - %s', date('M', $pQuarterInterval[0]), date('M', $p", "Previous quarter / %s - %s', date('M', $pQuarterInterval[0]), date('M', $p"
+"Previous week / %s - %s', date('d M', $pWeekInterval[0]), date('d M', $pWe", "Previous week / %s - %s', date('d M', $pWeekInterval[0]), date('d M', $pWe"
+"Previous year / %s', date('Y', $prevYear));
+
+        if ($subintervals) {
+", "Previous year / %s', date('Y', $prevYear));
+
+        if ($subintervals) {
+"
+"Product Sales", "Product Sales"
+"Products", "Products"
+"Quarter", "Quarter"
+"Range", "Range"
+"Refunded", "Refunded"
+"Results", "Results"
+"Revenue", "Revenue"
+"SProduct Sales", "SProduct Sales"
+"Sales", "Sales"
+"Sales By Attribute", "Sales By Attribute"
+"Sales By Country", "Sales By Country"
+"Sales By Coupon", "Sales By Coupon"
+"Sales By Customer", "Sales By Customer"
+"Sales By Customer Group", "Sales By Customer Group"
+"Sales By Day of Week", "Sales By Day of Week"
+"Sales By Hour", "Sales By Hour"
+"Sales By Payment Type", "Sales By Payment Type"
+"Sales by Attribute", "Sales by Attribute"
+"Sales by Customer", "Sales by Customer"
+"Search Term", "Search Term"
+"Shipping", "Shipping"
+"Shipping Amount", "Shipping Amount"
+"Show By", "Show By"
+"Show Report For:", "Show Report For:"
+"Tax", "Tax"
+"Tax Amount", "Tax Amount"
+"This month / %s', date('M', $today));
+        $intervals['prev_month'] = M", "This month / %s', date('M', $today));
+        $intervals['prev_month'] = M"
+"This quarter / %s - %s', date('M', $quarterInterval[0]), date('M', $quarte", "This quarter / %s - %s', date('M', $quarterInterval[0]), date('M', $quarte"
+"This week / %s - %s', date('d M', $weekInterval[0]), date('d M', $weekInte", "This week / %s - %s', date('d M', $weekInterval[0]), date('d M', $weekInte"
+"This year / %s', date('Y', $today));
+        $intervals['prev_year']  = Ma", "This year / %s', date('Y', $today));
+        $intervals['prev_year']  = Ma"
+"Title", "Title"
+"To", "To"
+"Today / %s', date('d M', $today));
+        $intervals['yesterday']  = Mage", "Today / %s', date('d M', $today));
+        $intervals['yesterday']  = Mage"
+"Total %d records found', $this->getCollection()->getSize()) ?>
+            <span id="<?ph", "Total %d records found', $this->getCollection()->getSize()) ?>
+            <span id="<?ph"
+"View", "View"
+"Week", "Week"
+"Widget", "Widget"
+"Year", "Year"
+"Yesterday / %s', date('d M', $yesterday));
+
+        $intervals['week'] = M", "Yesterday / %s', date('d M', $yesterday));
+
+        $intervals['week'] = M"
+"not set", "not set"
+"of %s pages', $this->getCollection()->getLastPageNumber()) ?>
+            <span class="se", "of %s pages', $this->getCollection()->getLastPageNumber()) ?>
+            <span class="se"
+"per page", "per page"

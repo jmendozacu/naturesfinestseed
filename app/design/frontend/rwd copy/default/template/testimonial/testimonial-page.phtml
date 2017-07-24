@@ -1,0 +1,44 @@
+<?php 
+/**
+ * @category  Magebuzz
+ * @package   Magebuzz_Testimonial
+ * @version   0.1.5
+ * @copyright Copyright (c) 2012-2015 http://www.magebuzz.com
+ * @license   http://www.magebuzz.com/terms-conditions/
+ * @var $this Magebuzz_Testimonial_Block_Testimonial
+ */
+?>
+<?php $testimonial = Mage::getModel('testimonial/testimonial')->getCollection()->setPageSize('4');?>
+<div class="customer-testimonials">
+  <div class="page-title">
+    <h1><?php echo $this->__('Customer Testimonials');?></h1>
+    </div>
+  <?php echo $this->getPagerHtml();?>
+  <?php if ($testimonial->getSize()): ?>
+    <?php $i=0; foreach ($testimonial as $obj):?>
+      <?php if($obj->getStatus()==1): ?>
+      <div class="customer-testimonials-content<?php if($i==0):?> first<?php endif;?><?php if($i==(count($testimonial)-1)):?> last<?php endif;?>" name="<?php echo $obj->getName(); ?>" id="<?php echo $obj->getName(); ?>">
+        <div class="testimonial-content">
+          <div class="testimonial-content-avatar">
+            <?php
+              if($obj->getAvatarName() != ''){
+                  $avatarLink = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .'magebuzz/avatar/'.$obj->getAvatarName();
+                  ?><img src="<?php echo $avatarLink ?>" alt="test" height="120" width="120" /><?php
+              }
+            ?>
+          </div>
+          <?php echo $obj->getTestimonial();?>
+        </div>
+        <div class="testimonial-source">
+          <span class="testimonial-author"><?php echo $obj->getName(); ?></span>
+          <span class="testimonial-date">
+            <?php echo date('F d, Y', Mage::getModel('core/date')->gmtTimestamp($obj->getCreatedTime())); ?>
+          </span>
+        </div>
+      </div>
+      <?php endif ?>
+      <?php $i++; ?>
+    <?php endforeach;?>
+  <?php endif ?>
+</div>
+

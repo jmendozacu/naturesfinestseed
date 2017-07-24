@@ -1,0 +1,75 @@
+<?php
+
+function sanitize_output($buffer) {
+
+    $search = array(
+        '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+        '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+        '/(\s)+/s'       // shorten multiple whitespace sequences
+    );
+
+    $replace = array(
+        '>',
+        '<',
+        '\\1'
+    );
+
+    $buffer = preg_replace($search, $replace, $buffer);
+
+    return $buffer;
+}
+
+ob_start("sanitize_output");
+
+?>
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic' rel='stylesheet' type='text/css'>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<?php echo $this->getChildHtml('header') ?>
+<?php 
+$_categoryIds = $product->getCategoryIds();
+/**
+ * looping through the array of category ids
+ */
+foreach($_categoryIds as $_categoryId) {
+    $_category = Mage::getModel('catalog/category')->load($_categoryId);
+    $_path = $_category->getPath();
+      $_ids = explode('/', $_path);
+      if (isset($_ids[2])) {
+          $_topParent = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($_ids[2]);
+          if ($_topParent->getFeaturedimage()) :
+          $_imgUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'catalog/category/'.$_topParent->getFeaturedimage();
+          endif;
+      }
+        else {
+         $_topParent = null;//it means you are in one catalog root.
+      }
+}
+?>
+<section class="internal-splash product-internal-splash" <?php if ($_imgUrl) :?>style="background-image: url(<?php echo $_imgUrl;?>);"<?php endif;?>></section>
+<?php $_product = $this->getProduct(); ?>
+<div class="row">
+
+</div>
+        <?php echo $this->getChildHtml('footer_before') ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<div class="page-title">
+    <h1><?php echo Mage::helper('contacts')->__('Contact Nature\'s Seed') ?></h1>
+</div>
+<div class="medium-8 columns">
+<div id="custom-form">
+        <h3>Fill out our online form</h3>
+        <p>At NaturesFinestSeed.com we strive for the best customer experience possible. We appreciate your comments, feedback, and questions.</p>
+        <p>Our seed experts will quickly reply to any question. For questions about what seed to plant, recommendations and specific planting needs our seed experts need as much geographic and soil information as possible. Please include your city, state and zip code. Information regarding sunlight and water is also important.</p>
+<form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post" class="scaffold-form">
+    <div class="fieldset">
+        <h3 class="legend"><?php echo Mage::helper('contacts')->__('Personal Information') ?></h3>
+        <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
+        <ul class="form-list">
+            <li class="fields">
+                <div class="field">
+                    <label for="name" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Your Full Name') ?></label>
+                    <div class="input-box">
+                        <input name="name" id="name" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Name')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="email" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Your Email Address') ?></label>
+                    <div class="input-box">
+                        <input name="email" id="email" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Email')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="email" autocapitalize="off" autocorrect="off" spellcheck="false" />
+                    </div>
+                </div>
+            </li>
+            <li>
+                <label for="telephone"><?php echo Mage::helper('contacts')->__('Phone Number') ?></label>
+                <div class="input-box">
+                    <input name="telephone" id="telephone" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Telephone')) ?>" value="" class="input-text" type="tel" />
+                </div>
+            </li>
+            <li>
+                <label for="subject"><?php echo Mage::helper('contacts')->__('Subject') ?></label>
+                <div class="input-box">
+                    <input name="subject" id="subject" title="<?php echo Mage::helper('contacts')->__('Subject') ?>" value="" class="input-text" type="text" />
+                </div>
+            </li>
+            <li class="wide">
+                <label for="question-message" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Question / Message') ?></label>
+                <div class="input-box">
+                    <textarea name="question-message" id="question-message" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Question / Message')) ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+                    <h5>** Optional additional information to help us better serve you</h5>
+                    <h4>Planting Location</h4>
+                </div>
+            </li>
+            <li>
+                <label for="nearest-city"><?php echo Mage::helper('contacts')->__('Nearest City') ?></label>
+                <div class="input-box">
+                    <input name="nearest-city" id="nearest-city" title="<?php echo Mage::helper('contacts')->__('Nearest City') ?>" value="" class="input-text" type="text" />
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="field">
+        <label for="nearest-state"><?php echo Mage::helper('contacts')->__('Nearest State') ?></label>
+        <div class="input-box">
+               <select name="nearest-state" id="nearest-state">
+                  <option value="Alabama">Alabama</option>
+                  <option value="Alaska">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="Arizona">Arkansas</option>
+                  <option value="California">California</option>
+                  <option value="Colorado">Colorado</option>
+                  <option value="Connecticut">Connecticut</option>
+                  <option value="Delaware">Delaware</option>
+                  <option value="District Of Columbia">District Of Columbia</option>
+                  <option value="Florida">Florida</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Hawaii">Hawaii</option>
+                  <option value="Idaho">Idaho</option>
+                  <option value="Illinois">Illinois</option>
+                  <option value="Indiana">Indiana</option>
+                  <option value="Iowa">Iowa</option>
+                  <option value="Kansas">Kansas</option>
+                  <option value="Kentucky">Kentucky</option>
+                  <option value="Louisiana">Louisiana</option>
+                  <option value="Maine">Maine</option>
+                  <option value="Maryland">Maryland</option>
+                  <option value="Massachusetts">Massachusetts</option>
+                  <option value="Michigan">Michigan</option>
+                  <option value="Minnesota">Minnesota</option>
+                  <option value="Mississippi">Mississippi</option>
+                  <option value="Missouri">Missouri</option>
+                  <option value="Montana">Montana</option>
+                  <option value="Nebraska">Nebraska</option>
+                  <option value="Nevada">Nevada</option>
+                  <option value="New Hampshire">New Hampshire</option>
+                  <option value="New Jersey">New Jersey</option>
+                  <option value="New Mexico">New Mexico</option>
+                  <option value="New York">New York</option>
+                  <option value="North Carolina">North Carolina</option>
+                  <option value="North Dakota">North Dakota</option>
+                  <option value="Ohio">Ohio</option>
+                  <option value="Oklahoma">Oklahoma</option>
+                  <option value="Oregon">Oregon</option>
+                  <option value="Pennsylvania">Pennsylvania</option>
+                  <option value="Rhode Island">Rhode Island</option>
+                  <option value="South Carolina">South Carolina</option>
+                  <option value="South Dakota">South Dakota</option>
+                  <option value="Tennessee">Tennessee</option>
+                  <option value="Texas">Texas</option>
+                  <option value="Utah">Utah</option>
+                  <option value="Vermont">Vermont</option>
+                  <option value="Virginia">Virginia</option>
+                  <option value="Washington">Washington</option>
+                  <option value="West Virginia">West Virginia</option>
+                  <option value="Wisconsin">Wisconsin</option>
+                  <option value="Wyoming">Wyoming</option>
+                  <option value="American Samoa">American Samoa</option>
+                  <option value="Guam">Guam</option>
+                  <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                  <option value="Puerto Rico">Puerto Rico</option>
+                  <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                  <option value="Virgin Islands">Virgin Islands</option>
+                  <option value="Armed Forces Americas">Armed Forces Americas</option>
+                  <option value="Armed Forces Pacific">Armed Forces Pacific</option>
+                  <option value="Armed Forces Others">Armed Forces Others</option>
+                </select>
+        </div>
+    </div>
+    <div>
+        <label for="zip-code"><?php echo Mage::helper('contacts')->__('Zip Code') ?></label>
+            <div class="input-box">
+                <input name="zip-code" id="zip-code" title="<?php echo Mage::helper('contacts')->__('Zip Code') ?>" value="" class="input-text" type="text" />
+            </div>
+    </div>
+
+    <div class="buttons-set">
+        <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+        <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Submit Form')) ?>" class="button"><span><span><?php echo Mage::helper('contacts')->__('Submit Form') ?></span></span></button>
+    </div>
+</form>
+</div>
+</div>
+<div class="medium-4 columns">
+    <a href="javascript:void($zopim.livechat.say('Hello!'))" class="button live-chat-link"><i class="fa fa-comments"></i> Live Chat</a>
+    <div class="fb-page" data-href="https://www.facebook.com/NaturesFinestSeed/?fref=ts" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/NaturesFinestSeed/?fref=ts"><a href="https://www.facebook.com/NaturesFinestSeed/?fref=ts">NaturesFinestSeed.com</a></blockquote></div></div>
+    <div id="contact-testimonials">
+    <h3>Recent Testimonials</h3>
+    <div class="testimonial-excerpt">
+        <p class="quote">“We have purchased both Pasture Blend and Blue Ribbon Turf Blend from Nature's Seed and have loved both products. I recommend Nature's Seed to all my friends."</p>
+        <p class="author">Angeline Carson</p>
+        <p class="title">Carson Custom Hardwood</p>
+        </div>
+    <div class="testimonial-excerpt">
+        <p class="quote">"Our lawn is the greenest on our block. Whenever anyone asks, we tell them that we got the seed from NaturesFinestSeed.com."</p>
+        <p class="author">Jakob Murphy</p>
+        <p class="title">Homeowner</p>
+    </div>
+    <div class="testimonial-excerpt">
+        <p class="quote">“The experts at Nature’s Seed have consistently provided exceptional knowledge and customer service along with the best quality seed in helping my company meet its reclamation objectives.”</p>
+        <p class="author">Mark Stewart</p>
+        <p class="title">Questar Pipeline Company</p>
+    </div>
+    </div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('contactForm', true);
+//]]>
+</script>

@@ -1,0 +1,9 @@
+<config>
+   <Magestore_Webpos>
+      <name>Web POS</name>
+      <type>commercial</type>
+      <activation_date>Jun 26, 2017</activation_date>
+      <expiration_date/>
+      <order_number>100104620</order_number>
+   </Magestore_Webpos>
+</config>

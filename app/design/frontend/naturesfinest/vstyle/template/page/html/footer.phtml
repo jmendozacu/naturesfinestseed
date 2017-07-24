@@ -1,0 +1,38 @@
+	<section class="instagram">
+    <div class="row">
+      <h3>Instagram Feed</h3>
+      <h4>We love sharing our story and keeping you in the loop on product updates, so follow us and learn more now!</h4>
+      <div id="instafeed">
+
+      </div>
+    </div>
+  </section>
+  <section class="cta">
+    <div class="row">
+      <h3>Satisfaction Guaranteed on All Our Products.</h3>
+      <a href="/grass-seed.html" class="button">Shop Now</a>
+    </div>
+  </section>
+  <footer class="primary-footer">
+    <div class="row">
+      <div class="medium-3 columns">
+      	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer-menu')->toHtml(); ?> 
+      </div>
+      <div class="medium-4 columns">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('facebook-form')->toHtml(); ?>
+      </div>
+      <div class="medium-4 right columns">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('social-mailing')->toHtml(); ?>
+      </div>
+    </div>
+  </footer>
+        <!--Start of Zopim Live Chat Script-->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+$.src='//v2.zopim.com/?1qLGDKWqaPUt3W3WREoYGt2Vd6J1Hsr9';z.t=+new Date;$.
+type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+</script>
+<!--End of Zopim Live Chat Script-->
+<script src="<?php echo $this->getSkinUrl('js/scripts-min.js');?>"></script>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <GetCommerce_AdminPayments>
+            <version>1.0.0</version>
+        </GetCommerce_AdminPayments>
+    </modules>
+    <global>
+        <helpers>
+            <adminpayments>
+                <class>GetCommerce_AdminPayments_Helper</class>
+            </adminpayments>
+        </helpers>
+        <models>
+            <adminpayments>
+                <class>GetCommerce_AdminPayments_Model</class>
+            </adminpayments>
+        </models>
+    </global>
+    <adminhtml>
+        <events>
+            <payment_method_is_active>
+                <observers>
+                    <getcommerce_admin_payments>
+                        <type>model</type>
+                        <class>GetCommerce_AdminPayments_Model_Observer</class>
+                        <method>enablePaymentMethods</method>
+                    </getcommerce_admin_payments>
+                </observers>
+            </payment_method_is_active>
+        </events>
+    </adminhtml>
+</config>

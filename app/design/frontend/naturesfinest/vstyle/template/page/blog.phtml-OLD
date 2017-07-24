@@ -1,0 +1,102 @@
+<?php
+
+function sanitize_output($buffer) {
+
+    $search = array(
+        '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+        '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+        '/(\s)+/s'       // shorten multiple whitespace sequences
+    );
+
+    $replace = array(
+        '>',
+        '<',
+        '\\1'
+    );
+
+    $buffer = preg_replace($search, $replace, $buffer);
+
+    return $buffer;
+}
+
+ob_start("sanitize_output");
+
+?>
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic' rel='stylesheet' type='text/css'>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?> id="about-page">
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper blog-view">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+  <section class="internal-splash blog-internal-splash"></section>
+  <section class="blog">
+    <div class="row">
+      <h1>Blog</h1>
+      <p class="tagline">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet repellendus voluptate laboriosam.</p>
+
+      <div class="article-slice">
+        <div class="row">
+          <div class="medium-4 columns">
+            <a href="/should-i-cut-back-my-perennials-or-leave-them"> <img src="http://naturesfinest.searchbloom.net/media/post/image/c/o/cone_flower_in_frost_by_johnathan_nightingale.jpg" alt=""></a>
+          </div>
+          <div class="medium-8 columns">
+            <h1 class="article-title">Should I Cut Back My Perennials Or Leave Them Uncut for the Winter?</h1>
+            <p class="date">by Skylar Christensen on December 12th, 2015</p>
+            <p class="description">Even though this week marks the official start of winter, many areas of the country have been knee-deep in the white stuff for weeks now...</p>
+            <a href="/should-i-cut-back-my-perennials-or-leave-them" class="button">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="article-slice">
+        <div class="row">
+          <div class="medium-4 columns">
+            <img src="http://www.naturesfinestseed.com/sites/naturesfinestseed.com/files/blue%20columbine.jpg?1448048660" alt="">
+          </div>
+          <div class="medium-8 columns">
+            <h1 class="article-title">Colorado Columbine: Our Most Popular Wildflower of 2015</h1>
+            <p class="date">by Skylar Christensen on November 20th, 2015</p>
+            <p class="description"><span style="font-style:italic">In its fair Western home, may the columbine bloom, till our great mountain rivers run dry.</span> – “Where the Columbines Grow” by A.J. Fynn.</p><p class="description"> It’s hard to believe we’re at the end of another growing season. The flowers that once filled our landscapes with color and beauty have disappeared; their withered heads a reminder that, as Frost put it best, nothing gold can stay. </p>
+            <a href="#" class="button">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="article-slice">
+        <div class="row">
+          <div class="medium-4 columns">
+            <img src="http://www.naturesfinestseed.com/sites/naturesfinestseed.com/files/gmo%20pic.jpg?1449591646" alt="">
+          </div>
+          <div class="medium-8 columns">
+            <h1 class="article-title">Frequently Asked Questions About GMOs and Our Seed</h1>
+            <p class="date">by Skylar Christensen on December 8th, 2015</p>
+            <p class="description">It seems no other topic in agriculture is as hotly debated as the subject of genetically modified organisms, or GMOs. On one side, GM crops are viewed as harmful, unpredictable, and threating...</p>
+            <a href="/colorado-columbine-our-most-popular-wildflower" class="button">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+        <?php echo $this->getChildHtml('footer_before') ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

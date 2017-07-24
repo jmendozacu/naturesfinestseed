@@ -1,0 +1,198 @@
+<div class="fixed-header">
+<div class="top-bar">
+    <div class="row row-contained">
+      <div class="medium-2 columns">
+        <ul class="inline-list social-links">
+          <li><a href="https://www.facebook.com/NaturesFinestSeed" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+          <li><a href="https://twitter.com/NaturesFnstSeed" target="_blank"><i class=" fa fa-twitter"></i></a></li>
+          <li><a href="https://www.instagram.com/natures_seed/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCUBhUh_H5I1zwZoXVTSzUPg" target="_blank"><i class="fa fa-youtube"></i></a></li>
+        </ul>
+      </div>
+      <div class="medium-10 columns">
+        <ul class="inline-list right">
+
+          <li><a href="/about">About</a></li>
+          <li><a href="/testimonial">Testimonials</a></li>
+          <li><a href="/contact-us">Contact Us</a></li>
+		  
+		  <?php if (Mage::helper('customer')->isLoggedIn() ): ?>
+            <li><a href="<?php echo Mage::helper('customer')->getLogoutUrl(); ?>"><?php echo 'Logout'; ?></a></li>
+	      <?php else: ?>
+            <li><a href="<?php echo Mage::helper('customer')->getLoginUrl(); ?>"><?php echo 'Login'; ?></a></li>
+		  <?php endif; ?>          
+
+		  <?php if (Mage::helper('customer')->isLoggedIn() ): ?>
+            <li><a href="/customer/account/"><?php echo 'My Account'; ?></a></li>
+	      <?php endif; ?>
+          
+          <li><a href="javascript:void($zopim.livechat.say('Hello!'))" class="live-chat-link">Live Chat</a></li>
+          <li><a href="<?php echo Mage::helper('checkout/cart')->getCartUrl(); ?>">Cart</a></li>
+        </ul>
+
+	  	<div class="inline-list right mobile_right_top_corner" >
+	  		<?php /* START MOBILE TOP MENU */ ?>	
+		    <script type="text/javascript">    
+				jQuery(document).ready(function() { 
+				    jQuery('.show_top_menu').on('click', function() {
+					    jQuery('#mobile_main_menu').hide();
+				        jQuery('#mobile_top_menu').toggle();
+				        
+				    });
+				});	        
+			</script>
+	        <a href="#" class="show_top_menu vissible-xs">&nbsp;</a>                
+		        <ul class="inline-list right hidden-xl" id="mobile_top_menu">
+		          <li><a href="/about">About</a></li>
+		          <li><a href="/testimonial">Testimonials</a></li>
+		          <li><a href="/contact">Contact</a></li>
+				  
+				  <?php if (Mage::helper('customer')->isLoggedIn() ): ?>
+		            <li><a href="<?php echo Mage::helper('customer')->getLogoutUrl(); ?>"><?php echo 'Logout'; ?></a></li>
+			      <?php else: ?>
+		            <li><a href="<?php echo Mage::helper('customer')->getLoginUrl(); ?>"><?php echo 'Login'; ?></a></li>
+				  <?php endif; ?>          
+		
+				  <?php if (Mage::helper('customer')->isLoggedIn() ): ?>
+		            <li><a href="/customer/account/"><?php echo 'My Account'; ?></a></li>
+			      <?php endif; ?>
+		          
+		          <li><a href="javascript:void($zopim.livechat.say('Hello!'))" class="live-chat-link">Live Chat</a></li>
+		          <li><a href="<?php echo Mage::helper('checkout/cart')->getCartUrl(); ?>">Cart</a></li>
+		        </ul>
+			<?php /* END MOBILE TOP MENU */ ?>	
+		        
+			<?php /* START MOBILE MAIN MENU */ ?>			
+
+			 <script type="text/javascript">    
+						jQuery(document).ready(function() {
+						    jQuery('.show_main_menu').on('click', function() {
+							    jQuery('#mobile_top_menu').hide();
+						        jQuery('#mobile_main_menu').toggle();
+						    });
+						});	        
+			</script>
+			
+			<a href="#" class="show_main_menu vissible-xs">&nbsp;</a>	    
+			<ul id="mobile_main_menu">
+			        <li><a href="/grass-seed.html">Lawn Grass Seed</a></li>
+			        <li><a href="/wildflower-seed.html">Wildflower Seed</i></a></li>
+			        <li><a href="/pasture-seed.html">Pasture Seed</a></li>
+			        <li><a href="/specialty-seed.html">Specialty Seed</a></li>
+			        <li><a href="/planting-aids.html">Planting Aids</a></li>
+			        <li><a href="/blog-posts">Blog</a></li>
+			        <li><a href="/resources">Resources</a></li>
+			</ul>
+			<?php /* END MOBILE MAIN MENU */  ?>
+		    </div>  
+
+
+	  	<ul class="inline-list right search">
+          <li><div class="search-form"><?php echo $this->getChildHtml('topSearch') ?></div><a href="#" class="search-toggle"></a></li>	      
+	  	</ul>
+
+      </div>
+    </div>
+  </div>
+      
+  <header class="primary-header">
+    <div class="row row-contained">
+      <div class="medium-4 columns"><a href="/"><img src="<?php echo $this->getSkinUrl('images/primary-logo.png');?>" alt="Nature's Seed Logo"></a></div>
+      <div class="medium-5 columns">
+		  	<div style="text-align: center; margin: 10px; max-height: 50px; overflow: hidden; color: #333;">
+			  	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('top-message')->toHtml(); ?>
+			  	<?php /* echo Mage::getStoreConfig('design/header/welcome'); */?>
+			 </div>	  	
+      </div>
+      <div class="medium-3 columns right"><img src="<?php echo $this->getSkinUrl('images/shipping.png');?>" alt="Nature's Seed Free Shipping" class="shipping"></div>
+    </div>
+  </header>
+
+  <div class="primary-navigation hidden-xs">	  
+    <div class="row row-contained">
+      <ul class="inline-list">
+        <li class="dropdown-toggle" style="margin-left: 0 !important;">
+          <a href="/grass-seed.html">Lawn Grass Seed <i class="fa fa-caret-down"></i></a>
+          <ul>
+            <!-- <li><a href="/grass-lawn-seeds.html">Grass Seeds By Region</a></li> -->
+            <li><a href="/grass-seed/by-region.html">Grass Seed by Region</a></li>
+            <li><a href="/grass-seed/ornamental-grasses.html">Ornamental Grasses</a></li>
+            <li><a href="/grass-seed/lawn-grass-seed-types.html">Lawn Grass Seed Types</a>
+            </li>
+            <li><a href="/grass-seed/lawn-grass-seed-types/kentucky-bluegrass.html">-  Kentucky Blue Grass Seeds</a></li>
+            <li><a href="/grass-seed/lawn-grass-seed-types/perennial-ryegrass.html">-  Perennial Ryegrass Seeds</a></li>
+            <li><a href="/grass-seed/lawn-grass-seed-types/fescue-grass.html">-  Fescue Grass Seeds</a></li>
+            <li><a href="/grass-seed/lawn-grass-seed-types/bahia-grass.html">-  Bahia Grass Seeds</a></li>
+            <li><a href="/grass-seed/lawn-grass-seed-types/bermuda-grass.html">-  Bermuda Grass Seeds</a></li>
+            <li><a href="/grass-seed/lawn-grass-seed-types/buffalograss.html">-  Buffalograss Seeds</a></li>
+            <li><a href="/grass-seed/lawn-grass-seed-types/zoysia-grass.html">-  Zoysia Grass Seeds</a></li>
+            <li><a href="/clover-seeds-lawn-additive">-  Clover Seeds (Lawn Additive)</a></li>
+          </ul>
+        </li>
+        <li><a href="/wildflower-seed.html">Wildflower Seed <i class="fa fa-caret-down"></i></a>
+          <ul>
+            <li><a href="/wildflower-seed/regional-wildflower-mixes.html">Regional Wildflower Mixes</a></li>
+            <li><a href="/wildflower-seed/individual-wildflower-species.html">Individual Species</a></li>
+          </ul>
+        </li>
+        <li><a href="/pasture-seed.html">Pasture Seed <i class="fa fa-caret-down"></i></a>
+          <ul>
+            <li><a href="/pasture-seed/individual-pasture-species.html">Individual Pasture Species</a></li>	          
+            <li><a href="/pasture-seed/pasture-seed-by-region.html">Pasture Seed by Region</a></li>	    
+            <li><a href="/pasture-seed/pasture-seed-blend-types.html">Pasture Seed Blend Types</a></li>	                                  
+            <li><a href="/pasture-seed/pasture-seed-blend-types/cattle-pastures.html">-  Cattle Pastures</a></li>
+            <li><a href="/pasture-seed/pasture-seed-blend-types/horse-pastures.html">-  Horse Pastures</a></li>
+            <li><a href="/pasture-seed/pasture-seed-blend-types/sheep-pastures.html">-  Sheep Pastures</a></li>
+            <li><a href="/pasture-seed/pasture-seed-blend-types/goat-pastures.html">-  Goat Pastures</a></li>
+            <li><a href="/pasture-seed/pasture-seed-blend-types/alpaca-llama-pastures.html">-  Alpaca/Llama Pastures</a></li>
+            <li><a href="/pasture-seed/pasture-seed-blend-types/bison-pastures.html">-  Bison Pastures</a></li>
+            <li><a href="/pasture-seed/pasture-seed-blend-types/poultry-pastures.html">-  Poultry Pastures</a></li>
+            <li><a href="/tortoise-forage-blend.html">- Tortoise Forage Blend</a></li>
+          </ul>
+        </li>
+        <li><a href="/specialty-seed.html">Specialty Seed <i class="fa fa-caret-down"></i></a>
+          <ul>
+            <li><a href="/specialty-seed/green-manure-cover-crops.html">Green Manure Cover Crops</a></li>
+            <li><a href="/specialty-seed/haymaking-crops.html">Haymaking Crops</a></li>
+            <li><a href="/specialty-seed/honey-bee-blends.html">Honey Bee Blends</a></li>            
+            <li><a href="/specialty-seed/pollinator-seed-blends.html">Pollinator Seed Blends</a></li>
+            <li><a href="/specialty-seed/erosion-control-blends.html">Erosion Control Blends</a></li>
+            <li><a href="/specialty-seed/dryland-pasture-blends.html">Dryland Pasture Blends</a></li>            
+            <li><a href="/specialty-seed/big-game-food-plot-blends.html">Big Game Food Plot Blends</a></li>
+            <li><a href="/specialty-seed/upland-game-food-plot-blends.html">Upland Game Food Plot Blends</a></li>
+            <li><a href="/specialty-seed/wetland-restoration-blends.html">Wetland Restoration Blends</a></li>
+            <li><a href="/specialty-seed/wildfire-resistant-blends.html">Wildfire Resistance Blends</a></li>            
+          </ul>
+        </li>
+        <li><a href="/planting-aids.html">Planting Aids</a></li>
+        <li><a href="/blog-posts">Blog</a></li>
+        <li><a href="/general-planting-and-care-guides">Resources <i class="fa fa-caret-down"></i></a>
+		   <ul>			   
+            <li><a href="/infographics">Infographics</a></li>
+            <li><a href="/general-planting-and-care-guides">General Planting And Care Guides</a></li>
+            <li><a href="/kentucky-bluegrass-guides">Kentucky Bluegrass Guides</a></li>
+            <li><a href="/fescue-grass-seed-guide">Fescue Grass Seed Guide</a></li>            
+            <li><a href="/buffalo-grass-seeds-guides">Buffalo Grass Guides</a></li>
+            <li><a href="/perennial-ryegrass-seeds-guides">Perennial Ryegrass Seed Guides</a></li>         
+            <li><a href="/bermuda-grass-guides">Bermuda Seed Guide</a></li>                     
+            <li><a href="/zoysia-grass-seeds-guides">Zoysia Guides</a></li>                     
+          </ul>
+        
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+    <?php /* echo $this->getChildHtml('topMenu') */ ?>
+  
+</div>
+
+
+<?php echo $this->getChildHtml('topContainer'); ?>
+<?php 
+	if($this->getIsHomePage()) {
+		echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_slider')->toHtml(); 	
+	} 
+
+?>
+

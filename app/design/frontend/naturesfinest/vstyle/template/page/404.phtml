@@ -1,0 +1,82 @@
+<?php
+
+function sanitize_output($buffer) {
+
+    $search = array(
+        '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+        '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+        '/(\s)+/s'       // shorten multiple whitespace sequences
+    );
+
+    $replace = array(
+        '>',
+        '<',
+        '\\1'
+    );
+
+    $buffer = preg_replace($search, $replace, $buffer);
+
+    return $buffer;
+}
+
+ob_start("sanitize_output");
+
+$pageId = Mage::app()->getRequest()->getParam('page_id', Mage::app()->getRequest()->getParam('id', false));
+$page = Mage::getModel('cms/page')->load($pageId);
+
+?>
+
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <?php echo $this->getChildHtml('head') ?>
+</head>
+<body class="page-empty <?php echo $this->getBodyClass()?$this->getBodyClass():'' ?>">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+<section class="internal-splash about-internal-splash"></section>
+    <section class="single-page-content">
+        <div class="row">
+            <h1 class="single-page-title"><?php echo $page->getTitle(); ?></h1>
+            <div class="page-title">
+<h1 class="single-page-title">Page Not Found</h1>
+</div>
+<dl><dt>The page you requested was not found, and we have a guess why.</dt><dd>
+<ul class="disc">
+<li>If you typed the URL directly, please make sure the spelling is correct.</li>
+<li>If you clicked on a link to get here, the link is outdated.</li>
+</ul>
+</dd></dl><dl><dt>What can you do?</dt><dd>Have no fear, help is near! There are many ways you can get back on track with Magento Store.</dd><dd>
+<ul class="disc">
+<li><a onclick="history.go(-1); return false;" href="#">Go back</a> to the previous page.</li>
+<li>Use the search bar at the top of the page to search for your products.</li>
+<li>Follow these links to get you back on track!<br /><a href="http://naturesfinest.searchbloom.net/index.php/admin123/cms_wysiwyg/directive/___directive/e3tzdG9yZSB1cmw9IiJ9fQ,,/key/e55512e7b5562a500cef38af3556c8d9/">Store Home</a> <span class="separator">|</span> <a href="http://naturesfinest.searchbloom.net/index.php/admin123/cms_wysiwyg/directive/___directive/e3tzdG9yZSB1cmw9ImN1c3RvbWVyL2FjY291bnQifX0,/key/e55512e7b5562a500cef38af3556c8d9/">My Account</a></li>
+</ul>
+</dd></dl>
+        </div>
+    </section>
+        <?php echo $this->getChildHtml('after_body_start') ?>
+        <?php echo $this->getChildHtml('global_messages') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+        <?php echo $this->getAbsoluteFooter() ?>
+    </div>
+     <?php echo $this->getChildHtml('footer_before') ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

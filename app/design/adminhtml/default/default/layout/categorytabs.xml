@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_categorytabs_index>
+        <reference name="content">
+            <block type="categorytabs/adminhtml_categorytabs" name="categorytabs" />
+        </reference>
+    </adminhtml_categorytabs_index>
+</layout>

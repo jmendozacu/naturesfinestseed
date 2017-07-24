@@ -1,0 +1,165 @@
+<?php
+
+function sanitize_output($buffer) {
+
+    $search = array(
+        '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+        '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+        '/(\s)+/s'       // shorten multiple whitespace sequences
+    );
+
+    $replace = array(
+        '>',
+        '<',
+        '\\1'
+    );
+
+    $buffer = preg_replace($search, $replace, $buffer);
+
+    return $buffer;
+}
+
+ob_start("sanitize_output");
+
+?>
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic' rel='stylesheet' type='text/css'>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?> id="about-page">
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+  <section class="internal-splash about-internal-splash"></section>
+  <section class="about">
+    <div class="row">
+      <h3>About Nature's Seed</h3>
+      <div class="medium-6 columns">
+        <h3>Nature's Seed cares about your home as much as you do</h3>
+        <p>Competition to develop new and improved grass seed types has resulted in hundreds of patented varieties available. Instead of being limited to a single producer, we stock only the best performing "golf-grade" quality varieties for your lawn.</p>
+        <p>Our quality controls include custom cleaning, followed by purity and viability testing performed by independent laboratories on all of our products.</p>
+        <a href="/grass-seed.html" class="button">Shop Seeds Now</a>
+      </div>
+      <div class="medium-6 columns">
+        <img src="<?php echo $this->getSkinUrl('images/about-bkg.jpg');?>" alt="Nature's Finest Seed">
+      </div>
+    </div>
+  </section>
+  <section class="categories">
+    <div class="row">
+      <h3>Our Product Categories</h3>
+      <h4>We continually add new products to our inventory.</h4>
+      <div class="medium-3 columns lawn-seeds">
+        <div class="icon"><span></span></div>
+        <h3>Lawn Seeds</h3>
+        <p>Nature’s Seed offers only the highest quality grass seed, with no filler products, and we have created a number of blends that can establish beautiful grass lawns in a variety of environments.</p>
+        <a href="/grass-seed.html" class="button">Shop Lawn Seeds</a>
+      </div>
+      <div class="medium-3 columns pasture-seeds">
+        <div class="icon"><?php echo'<span>&nbsp;</span>'?></div>
+        <h3>Pasture Seeds</h3>
+        <p>Our pasture grass seed growing region in the Pacific Southwest stretches down the California coast from the San Francisco area through Southern California.</p>
+        <a href="/pasture-seed.html" class="button">Shop Pasture Seeds</a>
+      </div>
+      <div class="medium-3 columns wildflower-seeds">
+        <div class="icon"><span></span></div>
+        <h3>Wildflower Seeds</h3>
+        <p> Wildflowers come in all sizes, forms, colors, and textures. Many are native to the U.S. while others have been introduced and naturalized.</p>
+        <a href="/wildflower-seed.html" class="button">Shop Wildflower Seeds</a>
+      </div>
+      <div class="medium-3 columns specialty-seeds">
+        <div class="icon"><span></span></div>
+        <h3>Specialty Seeds</h3>
+        <p>Like an artist’s palette or a handyman’s toolbox, nature has provided us a multitude of plant materials to work with—each with unique and valuable characteristics.</p>
+        <a href="/specialty-seed.html" class="button">Shop Specialty Seeds</a>
+      </div>
+    </div>
+  </section>
+  <section class="categories reasons-why">
+    <div class="row">
+      <h3>Why Choose Nature's Seed?</h3>
+      <h4>Quality - in everything we do - is our hallmark.</h4>
+      <div class="columns medium-3 free-shipping">
+        <div class="icon"><span></span></div>
+        <h3>Free Shipping</h3>
+        <p>We mean it.  Free shipping means free shipping on all orders in the US.</p>
+      </div>
+      <div class="columns medium-3 same-day">
+        <div class="icon"><span></span></div>
+        <h3>Same Day Shipping</h3>
+        <p>We pride ourselves on our fast shipping times.</p>
+      </div>
+      <div class="columns medium-3 satisfaction">
+        <div class="icon"><span></span></div>
+        <h3>100% Satisfaction</h3>
+        <p>If you aren't happy, tell us!  We're here to help you.'</p>
+      </div>
+      <div class="columns medium-3 instant-chat">
+        <div class="icon"><span></span></div>
+        <h3>Instant Chat</h3>
+        <p>Need some help? Great! We have a team of experts standing by!</p>
+      </div>
+    </div>
+  </section>
+  <section class="featured">
+    <div class="row">
+      <h3>Nature's Seed Has Been Featured On</h3>
+      <img src="<?php echo $this->getSkinUrl('images/featured.png');?>" alt="Nature's Seed Featured Networks">
+    </div>
+  </section>
+  <section class="testimonials">
+    <div class="row">
+      <h3>People Love Nature's Seed</h3>
+      <h4>We have thousands of happy customers! We like to think of ourselves as a leader in the community, and we thank you for trusting us as your seed provider.</h4>
+      <div class="medium-4 columns">
+        <div class="testimonial">
+          <div class="icon"><i class="fa fa-comments-o"></i></div>
+          <p class="quote">“The experts at Nature’s Seed have consistently provided exceptional knowledge and customer service along with the best quality seed in helping my company meet its reclamation objectives.”</p>
+          <p class="author">Mark Stewart</p>
+          <p class="title">Questar Pipeline Company</p>
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="testimonial">
+          <div class="icon"><i class="fa fa-comments-o"></i></div>
+          <p class="quote">"...we appreciate the wildflower seed assortment we get from you. They are a wonderful assortment and it’s nice to get a mix that changes through the season. Our back yard looks great all summer!"</p>
+          <p class="author">Greg White</p>
+        <p class="title">Cabin Owner</p>
+      </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="testimonial">
+          <div class="icon"><i class="fa fa-comments-o"></i></div>
+          <p class="quote">"I’ve been re-seeding mining disturbances for 25 years and have yet to find a company with better seed quality, seed selection and customer relations."<br><br></p>
+          <p class="author">Greg E. Jones</p>
+          <p class="title">Environmental Scientist</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <a href="/testimonial/" class="button">Read More Testimonials</a>
+    </div>
+  </section>
+        <?php echo $this->getChildHtml('footer_before') ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

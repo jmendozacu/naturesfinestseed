@@ -1,0 +1,53 @@
+<?php 
+/**
+ * @category  Magebuzz
+ * @package   Magebuzz_Testimonial
+ * @version   0.1.5
+ * @copyright Copyright (c) 2012-2015 http://www.magebuzz.com
+ * @license   http://www.magebuzz.com/terms-conditions/
+ * @var $this Magebuzz_Testimonial_Block_Sidebar
+ */
+?>
+<?php if(Mage::getStoreConfig('testimonial/general_option/enable_sidebar') == 1):?>
+	<?php $latestTestimonial = $this->getTestimonialsLast()?>
+	<?php if(count($latestTestimonial) > 0):?>
+	<link type="text/css" href="<?php echo $this->getSkinUrl('css/magebuzz/testimonial.css')?>" rel="stylesheet">
+			<?php foreach($latestTestimonial as $_item):?>
+				<div class="medium-4 columns">		
+					<div class="testimonial">
+							<div class="icon"><i class="fa fa-comments-o"></i></div>
+							<p class="quote">
+									   <?php
+											$_description = '"'.$_item->getTestimonial().'"';
+											echo $_description;
+/*
+											$short_desc = $this->getContentTestimonialSidebar($_description, 150);
+											$wordsreturned = 15;
+											$string = $short_desc;
+											$retval = $string;
+											$string = strip_tags($string);
+											$string = preg_replace('/(?<=\S,)(?=\S)/', ' ', $string);
+											$string = str_replace("\n", " ", $string);
+											$array = explode(" ", $string);
+											if (count($array)<=$wordsreturned)
+											{
+											    $retval = $string;
+											}
+											else
+											{
+											    array_splice($array, $wordsreturned);
+											    $retval = implode(" ", $array)." ...";
+											}
+											echo $retval;	  											
+*/
+									   ?>								
+							</p>
+							<span class="testimonial-author"><?php echo $_item->getName();?></span>
+							<span class="testimonial-date"><?php echo $_item->getCompany(); ?></span>
+					</div>
+				</div>				
+			<?php endforeach;?>
+	<div style="clear: both; height: 20px;">&nbsp;</div>
+	<div class="row"><a class="button" href="/testimonial/">Read More Testimonials</a></div>			
+	<?php endif ?>
+<?php endif ?>

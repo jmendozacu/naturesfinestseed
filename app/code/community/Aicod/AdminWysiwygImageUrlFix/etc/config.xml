@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+      <Aicod_AdminWysiwygImageUrlFix>
+          <version>1.0</version>
+      </Aicod_AdminWysiwygImageUrlFix>
+  </modules>
+
+  <!-- controller backend -->
+  <admin>
+   <routers>
+     <adminhtml>
+       <args>
+         <modules>
+           <aicod_adminwysiwygimageurlfix before="Mage_Adminhtml">Aicod_AdminWysiwygImageUrlFix</aicod_adminwysiwygimageurlfix>
+         </modules>
+       </args>
+     </adminhtml>
+   </routers>
+  </admin>
+  
+</config>

@@ -1,0 +1,86 @@
+<?php
+
+function sanitize_output($buffer) {
+
+    $search = array(
+        '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+        '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+        '/(\s)+/s'       // shorten multiple whitespace sequences
+    );
+
+    $replace = array(
+        '>',
+        '<',
+        '\\1'
+    );
+
+    $buffer = preg_replace($search, $replace, $buffer);
+
+    return $buffer;
+}
+
+ob_start("sanitize_output");
+
+?>
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic' rel='stylesheet' type='text/css'>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?> id="about-page">
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper blog-view">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+  <section class="internal-splash resources-internal-splash"></section>
+<section class="testimonials testimonials-grid">
+    <div class="row">
+      <h3>Testimonials</h3>
+      <p class="tagline">We have thousands of happy customers! We like to think of ourselves as a leader in the community, and we thank you for trusting us as your seed provider.</h4>
+      <div class="medium-4 columns">
+        <div class="testimonial">
+          <div class="icon"><i class="fa fa-comments-o"></i></div>
+          <p class="quote">“The experts at Nature’s Seed have consistently provided exceptional knowledge and customer service along with the best quality seed in helping my company meet its reclamation objectives.”</p>
+          <p class="author">Mark Stewart</p>
+          <p class="title">Questar Pipeline Company</p>
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="testimonial">
+          <div class="icon"><i class="fa fa-comments-o"></i></div>
+          <p class="quote">"...we appreciate the wildflower seed assortment we get from you. They are a wonderful assortment and it’s nice to get a mix that changes through the season. Our back yard looks great all summer!"</p>
+          <p class="author">Greg White</p>
+        <p class="title">Cabin Owner</p>
+      </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="testimonial">
+          <div class="icon"><i class="fa fa-comments-o"></i></div>
+          <p class="quote">"I’ve been re-seeding mining disturbances for 25 years and have yet to find a company with better seed quality, seed selection and customer relations."<br><br></p>
+          <p class="author">Greg E. Jones</p>
+          <p class="title">Environmental Scientist</p>
+        </div>
+      </div>
+    </div>
+  </section>
+        <?php echo $this->getChildHtml('footer_before') ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

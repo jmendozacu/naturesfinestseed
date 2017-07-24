@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mango
+ * @package    Mango_Categorytabs
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mango_Categorytabs>
+            <version>0.1.2</version>
+        </Mango_Categorytabs>
+    </modules>
+    <frontend>
+        <routers>
+            <categorytabs>
+                <use>standard</use>
+                <args>
+                    <module>Mango_Categorytabs</module>
+                    <frontName>categorytabs</frontName>
+                </args>
+            </categorytabs>
+        </routers>
+        <layout>
+            <updates>
+                <categorytabs>
+                    <file>categorytabs.xml</file>
+                </categorytabs>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Mango_Categorytabs after="Mage_Adminhtml">Mango_Categorytabs_Adminhtml</Mango_Categorytabs>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <Mango_Categorytabs>
+                            <title>Categorytabs Module</title>
+                            <sort_order>10</sort_order>
+                        </Mango_Categorytabs>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <categorytabs>
+                    <file>categorytabs.xml</file>
+                </categorytabs>
+            </updates>
+        </layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <categorytabs>
+                <class>Mango_Categorytabs_Model</class>
+                <resourceModel>categorytabs_mysql4</resourceModel>
+            </categorytabs>
+            <categorytabs_mysql4>
+                <class>Mango_Categorytabs_Model_Mysql4</class>
+                <entities>
+                    <categorytabs>
+                        <table>categorytabs</table>
+                    </categorytabs>
+                </entities>
+            </categorytabs_mysql4>
+        </models>
+        <resources>
+            <categorytabs_setup>
+                <setup>
+                    <module>Mango_Categorytabs</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </categorytabs_setup>
+            <categorytabs_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </categorytabs_write>
+            <categorytabs_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </categorytabs_read>
+        </resources>
+        <blocks>
+            <categorytabs>
+                <class>Mango_Categorytabs_Block</class>
+            </categorytabs>
+        </blocks>
+        <helpers>
+            <categorytabs>
+                <class>Mango_Categorytabs_Helper</class>
+            </categorytabs>
+        </helpers>
+    </global>
+</config>

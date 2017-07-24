@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageWorx
+ * MageWorx SeoBase Extension
+ * 
+ * @category   MageWorx
+ * @package    MageWorx_SeoBase
+ * @copyright  Copyright (c) 2015 MageWorx (http://www.mageworx.com/)
+ */
+ -->
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <block type="mageworx_seobase/head_canonical" name="mageworx_head_canonical" />
+            <block type="mageworx_seobase/head_hreflangs" name="mageworx_head_hreflangs" />
+        </reference>
+    </default>
+    
+    
+    
+    
+    
+<!--    <catalog_product_view>
+        <update handle="catalog_category_view" />
+    </catalog_product_view>
+    <cms_index_index>
+        <update handle="catalog_category_view" />
+    </cms_index_index>
+    <cms_page_view>
+        <update handle="catalog_category_view" />
+    </cms_page_view>
+    <review_product_list>
+        <update handle="catalog_category_view" />
+    </review_product_list>-->
+</layout>

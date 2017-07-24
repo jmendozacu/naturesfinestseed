@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package>
+    <name>Aicod_AdminWysiwygImageUrlFix</name>
+    <version>1.0.88237945</version>
+    <stability>stable</stability>
+    <license uri="http://www.ecommercegrow.com/license">http://www.ecommercegrow.com/license</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>www.ecommercegrow.com</summary>
+    <description>www.ecommercegrow.com</description>
+    <notes>www.ecommercegrow.com</notes>
+    <authors>
+      <author>
+        <name>ecommercegrow</name>
+        <user>ecommercegrow</user>
+        <email>info@ecommercegrow.com</email>
+      </author>
+    </authors>
+    <compatible/>
+    <dependencies>
+      <required>
+        <php>
+          <min>5.2.0</min>
+          <max>6.0.0</max>
+        </php>
+      </required>
+    </dependencies>
+    <date>2013-06-25</date>
+    <time>16:37:40</time>
+    <contents>
+      <target name="mage"><dir name="app"><dir name="etc"><dir name="modules"><file name="Aicod_AdminWysiwygImageUrlFix.xml" hash="a9d0d47cc0d8061b4d009e8e95f26730"/></dir></dir><dir name="code"><dir name="community"><dir name="Aicod"><dir name="AdminWysiwygImageUrlFix"><dir name="controllers"><dir name="Cms"><file name="WysiwygController.php" hash="10452cb38104623de3bb8885587e4ad4"/></dir></dir><dir name="etc"><file name="config.xml" hash="135ea60fef7bbc9481a60d2c9e8f1391"/></dir><file name="LICENSE.TXT" hash="b92e3a09e0ec51ac8d9a5caf61932035"/><file name="README.TXT" hash="d3680a8c2e8890fb81c8ca86c0fec986"/></dir></dir></dir></dir></dir></target>
+    </contents>
+</package>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_categoryattributes_index>
+        <reference name="content">
+            <block type="categoryattributes/adminhtml_categoryattributes" name="categoryattributes" />
+        </reference>
+    </adminhtml_categoryattributes_index>
+    
+    
+     <!--categoryattributes_adminhtml_categoryattributes_edit>
+        <reference name="left">
+            <block type="categoryattributes/adminhtml_categoryattributes_edit_tabs" name="attribute_edit_tabs"></block>
+        </reference>
+        <reference name="content">
+            <block type="categoryattributes/adminhtml_categoryattributes_edit" name="attribute_edit_content"></block>
+        </reference>
+        <reference name="js">
+            <block type="adminhtml/template" name="attribute_edit_js" template="catalog/product/attribute/js.phtml"></block>
+        </reference>
+    </categoryattributes_adminhtml_categoryattributes_edit-->
+    
+    
+</layout>

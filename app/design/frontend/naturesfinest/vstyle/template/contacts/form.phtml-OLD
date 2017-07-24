@@ -1,0 +1,353 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<div class="page-title">
+    <h1><?php echo Mage::helper('contacts')->__('Contact Us') ?></h1>
+</div>
+
+<div class="medium-8 columns">
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('contacts_1')->toHtml(); ?>
+<div class="tabs">
+  <ul class="tabs-menu">
+    <li class="hide-it"><a>Contact Us</a></li>
+    <li class="show-it"><a>Get Your Custom Quote</a></li>
+  </ul>
+</div>
+	<form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post">
+	    <div class="fieldset">
+	    <div id="tab-1">
+	        <h2 class="legend"><?php echo Mage::helper('contacts')->__('Contact Information') ?></h2>
+	        <ul class="form-list">
+	        	<div class="medium-6 columns">
+	            <li class="fields">
+	                <div class="field">
+	                    <label for="name" class="required"><?php echo Mage::helper('contacts')->__('Your Full Name') ?><em>*</em></label>
+	                    <div class="input-box">
+	                        <input name="name" id="name" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Your Full Name')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" />
+	                    </div>
+	                </div>
+	                <div class="field">
+	                    <label for="email" class="required"><?php echo Mage::helper('contacts')->__('Your e-mail address') ?><em>*</em></label>
+	                    <div class="input-box">
+	                        <input name="email" id="email" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Your e-mail address')) ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="text" />
+	                    </div>
+	                </div>
+	            </li>
+	            <li>
+	                <label for="telephone"><?php echo Mage::helper('contacts')->__('Your Phone Number (optional)') ?></label>
+	                <div class="input-box">
+	                    <input name="telephone" id="telephone" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Your Phone Number (optional)')) ?>" value="" class="input-text" type="text" />
+	                </div>
+	            </li>
+	            </div>
+	            <div class="medium-6 columns">
+	            <li>
+	                <label for="subject" class="required"><?php echo Mage::helper('contacts')->__('Subject') ?><em>*</em></label>
+	                <div class="input-box">
+	                    <input name="subject" id="subject" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('subject')) ?>" value="" class="input-text required-entry" type="text" />
+	                </div>
+	            </li>
+	            <li class="wide">
+	                <label for="comment" class="required"><?php echo Mage::helper('contacts')->__('Question/Message') ?><em>*</em></label>
+	                <div class="input-box">
+	                    <textarea name="comment" id="comment" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Question/Message')) ?>" class="required-entry input-text" cols="5" rows="4"></textarea>
+	                </div>
+	            </li>
+	            </div>
+	            </div>
+	            <div id="tab-2">
+	            <li class="wide">
+	            	&nbsp;
+				</li>
+	            <li class="wide">
+				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('contacts_2')->toHtml(); ?>	
+				</li>
+				<div class="medium-4 columns"> 
+	            <li>
+	                <label for="nearest-city"><?php echo Mage::helper('contacts')->__('Nearest City') ?></label>
+	                <div class="input-box">
+	                    <input name="nearest-city" id="nearest-city" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Nearest City')) ?>" value="" class="input-text" type="text" />
+	                </div>
+	            </li>
+	            </div>
+	            <div class="medium-4 columns"> 
+	            <li>
+	                <label for="nearest-state"><?php echo Mage::helper('contacts')->__('Nearest State') ?></label>
+	                <div class="input-box">                    
+		               <select name="nearest-state" id="nearest-state">
+			              <option disabled selected value> -- Select a State -- </option>
+		                  <option value="Alabama">Alabama</option>
+		                  <option value="Alaska">Alaska</option>
+		                  <option value="AZ">Arizona</option>
+		                  <option value="Arizona">Arkansas</option>
+		                  <option value="California">California</option>
+		                  <option value="Colorado">Colorado</option>
+		                  <option value="Connecticut">Connecticut</option>
+		                  <option value="Delaware">Delaware</option>
+		                  <option value="District Of Columbia">District Of Columbia</option>
+		                  <option value="Florida">Florida</option>
+		                  <option value="Georgia">Georgia</option>
+		                  <option value="Hawaii">Hawaii</option>
+		                  <option value="Idaho">Idaho</option>
+		                  <option value="Illinois">Illinois</option>
+		                  <option value="Indiana">Indiana</option>
+		                  <option value="Iowa">Iowa</option>
+		                  <option value="Kansas">Kansas</option>
+		                  <option value="Kentucky">Kentucky</option>
+		                  <option value="Louisiana">Louisiana</option>
+		                  <option value="Maine">Maine</option>
+		                  <option value="Maryland">Maryland</option>
+		                  <option value="Massachusetts">Massachusetts</option>
+		                  <option value="Michigan">Michigan</option>
+		                  <option value="Minnesota">Minnesota</option>
+		                  <option value="Mississippi">Mississippi</option>
+		                  <option value="Missouri">Missouri</option>
+		                  <option value="Montana">Montana</option>
+		                  <option value="Nebraska">Nebraska</option>
+		                  <option value="Nevada">Nevada</option>
+		                  <option value="New Hampshire">New Hampshire</option>
+		                  <option value="New Jersey">New Jersey</option>
+		                  <option value="New Mexico">New Mexico</option>
+		                  <option value="New York">New York</option>
+		                  <option value="North Carolina">North Carolina</option>
+		                  <option value="North Dakota">North Dakota</option>
+		                  <option value="Ohio">Ohio</option>
+		                  <option value="Oklahoma">Oklahoma</option>
+		                  <option value="Oregon">Oregon</option>
+		                  <option value="Pennsylvania">Pennsylvania</option>
+		                  <option value="Rhode Island">Rhode Island</option>
+		                  <option value="South Carolina">South Carolina</option>
+		                  <option value="South Dakota">South Dakota</option>
+		                  <option value="Tennessee">Tennessee</option>
+		                  <option value="Texas">Texas</option>
+		                  <option value="Utah">Utah</option>
+		                  <option value="Vermont">Vermont</option>
+		                  <option value="Virginia">Virginia</option>
+		                  <option value="Washington">Washington</option>
+		                  <option value="West Virginia">West Virginia</option>
+		                  <option value="Wisconsin">Wisconsin</option>
+		                  <option value="Wyoming">Wyoming</option>
+		                  <option value="American Samoa">American Samoa</option>
+		                  <option value="Guam">Guam</option>
+		                  <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+		                  <option value="Puerto Rico">Puerto Rico</option>
+		                  <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+		                  <option value="Virgin Islands">Virgin Islands</option>
+		                  <option value="Armed Forces Americas">Armed Forces Americas</option>
+		                  <option value="Armed Forces Pacific">Armed Forces Pacific</option>
+		                  <option value="Armed Forces Others">Armed Forces Others</option>
+		                </select>                                        
+	                </div>
+	            </li>
+	            </div>
+	            <div class="medium-4 columns"> 
+	            <li>
+	                <label for="nearest-zip"><?php echo Mage::helper('contacts')->__('Nearest ZIP') ?></label>
+	                <div class="input-box">
+	                    <input name="nearest-zip" id="nearest-zip" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Nearest ZIP')) ?>" value="" class="input-text" type="text" />
+	                </div>
+	            </li>
+	            </div>
+	            <li class="wide">
+	            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('contacts_3')->toHtml(); ?>    
+				</li>
+	            <li>
+	            	<div class="medium-6 columns">
+	                <label for="project-size"><?php echo Mage::helper('contacts')->__('Project Size') ?></label>
+	                <div class="input-box">
+	                    <input name="project-size" id="project-size" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Project Size')) ?>" value="" class="input-text" type="text" />
+	                </div>
+	                </div>
+	            </li>
+	            <li>
+	            	<div class="medium-6 columns">
+	                <label for="project-size-unit"><?php echo Mage::helper('contacts')->__('Project Size Units') ?></label>
+	                <div class="input-box">
+		               <select name="project-size-unit" id="project-size-unit">
+			              <option disabled selected value> -- Select an Unit -- </option>
+		                  <option value="Sq. Ft.">Sq. Ft.</option>
+		                  <option value="Acres">Acres</option>
+		                  <option value="Hectars">Hectars</option>
+		                </select>  
+	                </div>
+	                </div>
+	            </li>
+	            <li>
+	                <label><?php echo Mage::helper('contacts')->__('Aprox. Planting Date') ?></label>
+	                <div class="medium-4 columns">
+	                <div class="input-box">
+		               <select name="project-year" id="project-year">
+			              <option disabled selected value> -- Year -- </option>
+		                  <option value="2016">2016</option>
+		                  <option value="2017">2017</option>
+		                  <option value="2018">2018</option>
+		                  <option value="2019">2019</option>
+		                  <option value="2020">2020</option>	                  	                  
+		                  <option value="2021">2021</option>	                  
+		                </select>  
+	                </div>
+	                </div>
+	                <div class="medium-4 columns">
+	                <div class="input-box">
+		               <select name="project-month" id="project-month">
+			              <option disabled selected value> -- Month -- </option>
+		                  <option value="Jan">Jan</option>
+		                  <option value="Feb">Feb</option>
+		                  <option value="Mar">Mar</option>
+		                  <option value="Apr">Apr</option>
+		                  <option value="May">May</option>	                  	                  
+		                  <option value="Jun">Jun</option>	                  
+		                  <option value="Jul">Jul</option>	                  
+		                  <option value="Aug">Aug</option>	                  
+		                  <option value="Sep">Sep</option>	                  
+		                  <option value="Oct">Oct</option>	                  	                  	                  	                  	                  
+		                  <option value="Nov">Nov</option>	                  
+		                  <option value="Dec">Dec</option>	                  	                  	                  
+		                </select>  
+	                </div>
+	                </div>
+	                <div class="medium-4 columns">
+	                <div class="input-box">                                
+						<select name="project-day" id="project-day">
+							<option disabled selected value> -- Day -- </option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>                
+	                </div>
+	                </div>
+	            <li>
+	                <label><?php echo Mage::helper('contacts')->__('Purpose') ?></label>
+	                <div class="input-box">
+							<label><input type="checkbox" name="project-purpose-grass" id="project-purpose-grass" value="Grass Lawn (Turf)"> Grass Lawn (Turf)</label>
+							<label><input type="checkbox" name="project-purpose-alternative" id="project-purpose-alternative" value="Alternative Lawn"> Alternative Lawn</label>						
+							<label><input type="checkbox" name="project-purpose-beautification" id="project-purpose-beautification" value="Beautification"> Beautification</label>
+							<label><input type="checkbox" name="project-purpose-wildflowers" id="project-purpose-wildflowers" value="Wildflowers"> Wildflowers</label>			
+							<label><input type="checkbox" name="project-purpose-pasture" id="project-purpose-pasture" value="Pasture"> Pasture</label>
+							<label><input type="checkbox" name="project-purpose-wildlife" id="project-purpose-wildlife" value="Wildlife Food Plot"> Wildlife Food Plot</label>
+							<label><input type="checkbox" name="project-purpose-habitat" id="project-purpose-habitat" value="Habitat"> Habitat</label>
+							<label><input type="checkbox" name="project-purpose-revegetation" id="project-purpose-revegetation" value="Revegetation"> Revegetation</label>					
+							<label><input type="checkbox" name="project-purpose-slope" id="project-purpose-slope" value="Slope Stabilization"> Slope Stabilization</label>
+					</div>
+	            </li>
+	            <li class="wide">
+	            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('contacts_4')->toHtml(); ?>   
+				</li>
+				<li>
+					<label><?php echo Mage::helper('contacts')->__('Will you be watering the site?') ?></label>
+					<div class="radio_button">
+						<input type="radio" name="watering" value="Yes">Yes
+						<input type="radio" name="watering" value="No">No
+					</div>
+				</li>
+				<li>
+					<label><?php echo Mage::helper('contacts')->__('Soil Type') ?></label>
+					<div class="input-box">
+						<label><input type="checkbox" name="soil-type-grass" id="soil-type-grass" value="Grass"> Grass</label>
+						<label><input type="checkbox" name="soil-type-loam" id="soil-type-loam" value="Loam"> Loam</label>
+						<label><input type="checkbox" name="soil-type-sand" id="soil-type-sand" value="Sand"> Sand</label>
+						<label><input type="checkbox" name="soil-type-silt" id="soil-type-silt" value="Silt"> Silt</label>
+					</div>
+				</li>
+				<div class="medium-8 columns">
+				<li>
+					<label for="soil-ph"><?php echo Mage::helper('contacts')->__('Soil ph:') ?></label>
+					<div class="input-box">
+	                    <input name="soil-ph" id="soil-ph" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Soil ph:')) ?>" value="" class="input-text" type="text" />
+	                </div>
+	            </li> 
+	            <li class="wide">
+	                <label for="additional-soil-info"><?php echo Mage::helper('contacts')->__('Additional Soil Information') ?></label>
+	                <div class="input-box">
+	                    <textarea name="additional-soil-info" id="additional-soil-info" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Additional Soil Information')) ?>" class="input-text" cols="5" rows="5"></textarea>
+	                </div>
+	            </li>
+	            </div>
+	            <div class="medium-4 columns"> 
+	            <li>
+					<label><?php echo Mage::helper('contacts')->__('Sun/Shade') ?></label>
+					<div class="radio_button">
+						<input type="radio" name="sun-shade"  value="Full Sun"><span><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>/sun-shade/full_sun.png" alt="Full Sun" title="Full Sun" /></span><br />
+						<input type="radio" name="sun-shade" value="Full Sun to Partial Shade"><span><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>/sun-shade/full_sun_to_partial_shade.png" alt="Full Sun to Partial Shade" title="Full Sun to Partial Shade" /></span><br />
+						<input type="radio" name="sun-shade"  value="Full Sun to Full Shade"><span><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>/sun-shade/full_sun_to_full_shade.png" alt="Full Sun to Full Shade" title="Full Sun to Full Shade" /></span><br />
+						<input type="radio" name="sun-shade" value="Partial Sun"><span><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>/sun-shade/partial_sun.png" alt="Partial Sun" title="Partial Sun" /></span><br />
+						<input type="radio" name="sun-shade"  value="Partial Sun to Full Shade"><span><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>/sun-shade/partial_sun_to_full_shade.png" alt="Partial Sun to Full Shade" title="Partial Sun to Full Shade" /></span><br />
+						<input type="radio" name="sun-shade"  value="Full Shade"><span><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>/sun-shade/full_shade.png" alt="Full Shade" title="Full Shade" /></span>
+					</div>
+				</li>         
+	            </div>
+	        </ul>
+	    </div>
+	    <div style="clear: both;"></div>
+	    <div class="buttons-set">
+	        <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
+	        <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+	        <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Submit')) ?>" class="button"><span><span><?php echo Mage::helper('contacts')->__('Submit') ?></span></span></button>
+	    </div>
+	    </div>
+	</form>
+	<script type="text/javascript">
+	//<![CDATA[
+	    var contactForm = new VarienForm('contactForm', true);
+	//]]>
+	</script>
+
+</div>
+
+<div class="medium-4 columns">
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('contacts_5')->toHtml(); ?>
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('contacts_6')->toHtml(); ?>
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('contacts_7')->toHtml(); ?>      
+</div>

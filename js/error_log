@@ -1,0 +1,2 @@
+[29-Mar-2016 01:50:49 America/Los_Angeles] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20100525/imagick.so' - libMagickWand.so.2: cannot open shared object file: No such file or directory in Unknown on line 0
+[02-Jun-2016 13:15:35 America/Los_Angeles] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20100525/imagick.so' - libMagickWand.so.2: cannot open shared object file: No such file or directory in Unknown on line 0

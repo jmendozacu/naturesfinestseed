@@ -1,0 +1,72 @@
+<?php
+
+function sanitize_output($buffer) {
+
+    $search = array(
+        '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+        '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+        '/(\s)+/s'       // shorten multiple whitespace sequences
+    );
+
+    $replace = array(
+        '>',
+        '<',
+        '\\1'
+    );
+
+    $buffer = preg_replace($search, $replace, $buffer);
+
+    return $buffer;
+}
+
+ob_start("sanitize_output");
+
+?>
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,400italic' rel='stylesheet' type='text/css'>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?> id="about-page">
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper blog-view">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+  <section class="internal-splash blog-internal-splash"></section>
+  <section class="blog single-post">
+    <div class="row">
+      <img src="http://naturesfinest.searchbloom.net/media/post/image/c/o/cone_flower_in_frost_by_johnathan_nightingale.jpg" alt="" class="featured-image">
+      <h1>Should I Cut Back My Perennials Or Leave Them Uncut for the Winter?</h1>
+       <p class="date">by Skylar Christensen on December 12th, 2015</p>
+      <p>Even though this week marks the official start of winter, many areas of the country have been knee-deep in the white stuff for weeks now. For folks in these areas, there&rsquo;s probably not much you can do about your garden beds now. But if you live in an area where the snow has yet to fall, there&rsquo;s still time to ask the question: Should I cut back my perennials or leave them uncut for the winter? The default answer to this question has traditionally been yes, cut them back for the winter and remove all the dead plant matter. While there&rsquo;s nothing wrong with this approach, there are some pretty compelling reasons why leaving them uncut for the winter is an acceptable, and perhaps even better, practice.</p>
+      <h3><br />Time to Rethink a Tradition</h3>
+      <p>First, let&rsquo;s look at the traditional approach to winter preparation. The fact that it leaves your garden beds looking tidy is probably the biggest reason people cut their perennials back each year. It was for this reason I spent countless hours every fall trimming, cutting, raking and removing the dead plant matter around my client&rsquo;s property. Fall also happens to be a slower time for gardeners, and many people will take advantage of this season to get a head start on spring cleanup. But if you can live with a more natural looking landscape and can handle delaying cleanup until spring, try the laissez-faire approach this year. Of course, any diseased plant matter should be removed as soon as possible in the fall.</p>
+      <h3>The Winter Garden</h3>
+      <p>Snowy Grasses; photo by Leonora Enking at Flickr.com One of the biggest reasons to leave your perennial flowers and grasses uncut is the visual interest it provides during the winter. The winter garden is one of the most underrated aspects of landscaping. Yes it&rsquo;s cold outside, there&rsquo;s not much color and snow covers up most things, but take a closer look and you&rsquo;ll find an intricate world of ice, shadows, and form. By leaving the skeletal remains of your perennials, the wintertime garden can just as interesting as any other time of the year. Ornamental grasses are especially good at spicing up the winter landscape with their varying seedheads, colors, and heights. Tall, stiff grasses such as native switchgrass, Indian grass and the bluestems are stunning when encased in frost or framed on a white backdrop of snow.</p>
+      <h3>Benefit to Wildlife</h3>
+      <p>Another reason to leave your perennials standing for the winter is the benefit it has on wildlife. Overwintering birds rely on the dried up seedheads of native wildflowers and grasses for food, and take shelter in the remaining plant matter. Purple coneflower and black-eyed Susan wildflowers are particularly useful for this purpose. The winter garden is also a haven for beneficial pollinators. Several butterfly and bee species use plant debris for overwintering. With an increased awareness of the need to protect our pollinators wherever possible, now is the time to rethink the traditional autumn ritual of clear-cutting our perennial gardens.</p>
+      <h3>Reduces Winter Cold Damage</h3>
+      <p>Bird in Winter; photo by Brian Fuller at Flickr.com Leaving your perennials uncut for the winter also provides some insulation to the crown of the plant, helping it survive the cold of winter. However, it&rsquo;s not necessarily the plant matter itself that acts as insulation. Instead, uncut perennials help collect snow &ndash; the real insulation. By wrapping themselves in snow blankets, perennials can overwinter at a tolerable 32 degrees F. Without the cover of snow, a perennial is subject to the bitter cold of the open air, which in some areas can drop below zero for days at a time.</p>
+    </div>
+  </section>
+        <?php echo $this->getChildHtml('footer_before') ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>
