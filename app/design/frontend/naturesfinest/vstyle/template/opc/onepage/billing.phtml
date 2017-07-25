@@ -84,6 +84,27 @@
                         <div class="input-box">
                             <input type="text" title="<?php echo $this->__('Zip') ?>" name="billing[postcode]" id="billing:postcode" value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>" class="input-text validate-zip-international <?php echo $this->helper('opc')->getAttributeValidationClass('postcode') ?>" />
                         </div>
+						<div id="sign-check" style="display:none;">
+<input type="checkbox" id="chkk" name="delivery_signature" value="0" > Would you like a signature to be required upon delivery? <br>
+
+</div>
+<style>
+#sign-check {
+    position: absolute;
+    top: 198%;
+    text-align: center;
+    color: #fff;
+    right: 31%;
+    z-index: 99999;
+    background: #898c34;
+    display: inline-block;
+    cursor: pointer;
+    /* height: 62px; */
+    padding: 33px;
+}
+</style>
+
+
                     </div>
                     <div class="field">
                         <label for="billing:country_id" class="required"><em>*</em><?php echo $this->__('Country') ?></label>
@@ -202,4 +223,34 @@
 //<![CDATA[
     var billingRegionUpdater = new RegionUpdater('billing:country_id', 'billing:region', 'billing:region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'billing:postcode');
 //]]>
+</script>
+<script type="text/javascript">
+jQuery( document ).ready(function() {
+
+
+var price = '';
+var price = jQuery('.grand_total .price').text().trim().toString();
+var fix = '300.00';
+var price = price.replace('$','');
+
+if(parseInt(price) > parseInt(fix)){
+	jQuery('#sign-check').show();
+          
+		jQuery("#chkk").click(function() {
+    if(jQuery(this).is(":checked")) {
+		jQuery("#chkk").val('1');
+       jQuery('#sign-check').fadeOut('slow');
+    } 
+});
+		 }
+});
+</script>
+<script>
+
+jQuery(".btn-checkout").click(function() {
+	console.log(jQuery("#billing\\:telephone").val());
+    if(jQuery("#billing\\:telephone").val() == '') {
+       jQuery("#billing\\:telephone").val('801-701-9446');
+    } 
+});
 </script>

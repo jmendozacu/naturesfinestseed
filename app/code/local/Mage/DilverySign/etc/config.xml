@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<config>
+<modules>
+<Mage_DilverySign>
+<version>0.0.1</version>
+</Mage_DilverySign>
+</modules>
+
+
+<global> 
+         <fieldsets>
+            <sales_convert_quote>                           
+                <delivery_signature><to_order>*</to_order></delivery_signature>
+            </sales_convert_quote>
+
+            <sales_convert_order>                                              
+                <delivery_signature><to_quote>*</to_quote></delivery_signature>
+            </sales_convert_order>
+        </fieldsets>
+        <helpers>
+            <dilverysign>
+                <class>Mage_DilverySign_Helper</class>
+            </dilverysign>            
+        </helpers>
+
+        <models>
+            <dilverysign>
+                <class>Mage_DilverySign_Model</class>
+                <resourceModel>dilverysign_mysql4</resourceModel>
+            </dilverysign>
+        </models>
+        <resources>
+            <dilverysign_setup>
+                <setup>
+                    <module>Mage_DilverySign</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </dilverysign_setup>
+            <dilverysign_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </dilverysign_write>
+            <dilverysign_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </dilverysign_read>
+        </resources>
+
+        <events>
+            <adminhtml_sales_order_create_process_data_before>
+                <observers>
+                    <dilverysign>
+                        <type>singleton</type>
+                        <class>dilverysign/observer</class>
+                        <method>saveDeliverySignature</method>
+                    </dilverysign>
+                </observers>
+            </adminhtml_sales_order_create_process_data_before>
+        </events>
+
+        <blocks>
+            <dilverysign>
+                <class>Mage_DilverySign_Block</class>
+            </dilverysign>
+        </blocks>
+    </global>
+</config>
