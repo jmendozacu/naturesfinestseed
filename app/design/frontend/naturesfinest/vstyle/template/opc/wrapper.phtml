@@ -131,32 +131,32 @@ $is_persistent = Mage::helper('opc')->isPersistentMember();
 	</div>
 </div>
 <script type="text/javascript">
-jQuery( document ).ready(function() {
-
-
-var price = '';
-var price = jQuery('.grand_total .price').text().trim().toString();
-var fix = '300.00';
-var price = price.replace('$','');
-
-if(parseInt(price) > parseInt(fix)){
-	jQuery('#sign-check').show();
-          
-		jQuery("#chkk").click(function() {
-    if(jQuery(this).is(":checked")) {
-		jQuery("#chkk").val('1');
-       jQuery('#sign-check').fadeOut('slow');
-    } 
-});
-		 }
-});
+//jQuery( document ).ready(function() {
+//
+//
+//var price = '';
+//var price = jQuery('.grand_total .price').text().trim().toString();
+//var fix = '300.00';
+//var price = price.replace('$','');
+//
+//if(parseInt(price) > parseInt(fix)){
+//	jQuery('#sign-check').show();
+//          
+//		jQuery("#chkk").click(function() {
+//    if(jQuery(this).is(":checked")) {
+//		jQuery("#chkk").val('1');
+//       jQuery('#sign-check').fadeOut('slow');
+//    } 
+//});
+//		 }
+//});
 </script>
 <script>
-
-jQuery(".btn-checkout").click(function() {
-	console.log(jQuery("#billing\\:telephone").val());
-    if(jQuery("#billing\\:telephone").val() == '') {
-       jQuery("#billing\\:telephone").val('801-701-9446');
-    } 
-});
+//
+//jQuery(".btn-checkout").click(function() {
+//	console.log(jQuery("#billing\\:telephone").val());
+//    if(jQuery("#billing\\:telephone").val() == '') {
+//       jQuery("#billing\\:telephone").val('801-701-9446');
+//    } 
+//});
 </script>

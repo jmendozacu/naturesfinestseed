@@ -33,15 +33,8 @@
     </modules>
     <global>
         <fieldsets>
-		 <sales_convert_quote>                           
-                <delivery_signature><to_order>*</to_order></delivery_signature>
-            </sales_convert_quote>
-
-            <sales_convert_order>                                              
-                <delivery_signature><to_quote>*</to_quote></delivery_signature>
-            </sales_convert_order>
             <sales_copy_order>
-                <customer_emailcustomer_email>
+                <customer_email>
                     <to_edit>*</to_edit>
                 </customer_email>
                 <customer_group_id>
@@ -1500,16 +1493,8 @@
                         <method>addVatRequestParamsOrderComment</method>
                     </sales_vat_request_params_order_comment>
                 </observers>
-				 <observers>
-                    <sales_vat_request_params_order_comment>
-                        <class>sales/observer</class>
-                        <method>saveDeliverySignature</method>
-                    </sales_vat_request_params_order_comment>
-					
-                </observers>
             </sales_order_place_after>
         </events>
-	
     </global>
     <frontend>
         <secure_url>
